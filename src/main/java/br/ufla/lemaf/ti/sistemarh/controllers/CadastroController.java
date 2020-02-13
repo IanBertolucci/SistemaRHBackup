@@ -10,23 +10,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/usr")
+@RequestMapping("/form")
 public class CadastroController {
 
     @Autowired
     UsuarioRepo repositorio;
 
-    @GetMapping("/cadastrar")
-    public ModelAndView cadastrar(){
-        ModelAndView perfil = new ModelAndView("/cadastro/cadastro");
-        perfil.addObject("usuario", new Usuario());
-        return perfil;
+    @GetMapping("cadastro")
+    public ModelAndView cadastrar() {
+        ModelAndView resultado = new ModelAndView("form/cadastro");
+        Usuario usuario = new Usuario("", "", "","", "");
+        resultado.addObject("usuario", usuario);
+        return resultado;
     }
 
-    @PostMapping("/cadastrar")
-    public String cadastrar(Usuario usuario){
-        repositorio.save(usuario);
-        return "redirect:/dashboard";
+    @PostMapping("cadastro")
+    public String cadastrar(Usuario usuario) {
+        try {
+            repositorio.save(usuario);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/index/index";
     }
-
 }

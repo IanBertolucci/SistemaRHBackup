@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css"/>
 </head>
 <body>
-<div th:replace="fragmentos/fragmentos :: header"></div>
 <div class="container">
     <h2>Cadastro de aluno</h2>
-    <form class="form-horizontal" action="/usr/cadastrar" method="post" th:object="${usuario}">
+    <form class="form-horizontal" action="/form/cadastro" method="post" th:object="${usuario}">
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="txt-nome">Nome:</label>
@@ -18,7 +17,7 @@
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="txt-email">Idade:</label>
+                <label for="txt-email">Email:</label>
                 <input type="email" class="form-control" id="txt-email" th:field="*{email}"/>
             </div>
         </div>
@@ -26,13 +25,11 @@
             <div class="form-group col-md-6">
                 <label for="usr-pswrd">Senha:</label>
                 <input type="password" class="form-control" id="usr-pswrd" th:field="*{senha}">
-                </select>
             </div>
         </div>
         <input type="submit" value="Salvar" class="btn btn-default" />
     </form>
 </div>
-<div th:replace="fragmentos/fragmentos :: footer"></div>
 <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
