@@ -19,7 +19,7 @@ public class CadastroController {
     @GetMapping("cadastro")
     public ModelAndView cadastrar() {
         ModelAndView resultado = new ModelAndView("form/cadastro");
-        Usuario usuario = new Usuario("", "", "","", "");
+        Usuario usuario = new Usuario("", "", "", "", "", "");
         resultado.addObject("usuario", usuario);
         return resultado;
     }
