@@ -25,10 +25,10 @@ public class DbInitService implements CommandLineRunner {
     public void run(String... args){
         this.usuarioRepo.deleteAll();
 
-        Usuario usuario = new Usuario("user", "usuario jr", "user@user.com", passwordEncoder.encode("123"), "", "USER");
+        Usuario user = new Usuario("user", "usuario jr", "user@user.com", passwordEncoder.encode("123"), "", "USER");
         Usuario admin = new Usuario("admin", "admnistrador sr", "admin@admin.com", passwordEncoder.encode("123"), "", "ADMIN");
 
-        List<Usuario> usuarios = Arrays.asList(usuario, admin);
+        List<Usuario> usuarios = Arrays.asList(user, admin);
         this.usuarioRepo.saveAll(usuarios);
     }
 

@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -21,7 +22,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.usuarioDetailsService = usuarioDetailsService;
     }
 
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
         auth
@@ -32,14 +32,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/index").permitAll()
-                .antMatchers("/form/**").permitAll()
-                .antMatchers("/cadastro").permitAll()
-                .antMatchers("/user").authenticated()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .and()
+                    .antMatchers("/index").permitAll()
+                    .antMatchers("/form/**").permitAll()
+                    .antMatchers("/cadastro").permitAll()
+                    .antMatchers("/user").authenticated()
+                    .antMatchers("/admin").hasRole("ADMIN")
+                    .and()
                 .formLogin()
-                .loginPage("/login"); // TODO: mudar para view do vue
+                    .loginProcessingUrl("/signin")
+                    .loginPage("/login").permitAll() // TODO: mudar para view do vue
+                    .defaultSuccessUrl("/home")
+                    .usernameParameter("txtUsername")
+                    .passwordParameter("txtPassword")
+                    .and()
+                .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/login");
     }
 
     @Bean

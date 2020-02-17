@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Login efetuado com sucesso</title>
+</head>
+<body>
+<h1>Para logout:</h1>
+<form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
+    <button class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+<!--    <button th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>-->
+</form>
+</body>
+</html>
