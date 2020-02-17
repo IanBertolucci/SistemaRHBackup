@@ -1,6 +1,6 @@
 package br.ufla.lemaf.ti.sistemarh.controllers;
 
-import br.ufla.lemaf.ti.sistemarh.entidades.Usuario;
+import br.ufla.lemaf.ti.sistemarh.model.Usuario;
 import br.ufla.lemaf.ti.sistemarh.repositorios.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

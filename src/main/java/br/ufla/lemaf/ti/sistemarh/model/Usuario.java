@@ -1,6 +1,4 @@
-package br.ufla.lemaf.ti.sistemarh.entidades;
-
-import org.hibernate.validator.constraints.UniqueElements;
+package br.ufla.lemaf.ti.sistemarh.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

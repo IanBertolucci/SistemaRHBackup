@@ -1,6 +1,6 @@
 package br.ufla.lemaf.ti.sistemarh.services;
 
-import br.ufla.lemaf.ti.sistemarh.entidades.Usuario;
+import br.ufla.lemaf.ti.sistemarh.model.Usuario;
 import br.ufla.lemaf.ti.sistemarh.principal.UsuarioPrincipal;
 import br.ufla.lemaf.ti.sistemarh.repositorios.UsuarioRepo;
 import org.springframework.security.core.userdetails.UserDetails;

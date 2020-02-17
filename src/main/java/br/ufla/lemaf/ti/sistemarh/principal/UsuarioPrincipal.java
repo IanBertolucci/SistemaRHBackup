@@ -1,6 +1,6 @@
 package br.ufla.lemaf.ti.sistemarh.principal;
 
-import br.ufla.lemaf.ti.sistemarh.entidades.Usuario;
+import br.ufla.lemaf.ti.sistemarh.model.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

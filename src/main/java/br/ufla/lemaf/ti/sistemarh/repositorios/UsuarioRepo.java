@@ -1,6 +1,6 @@
 package br.ufla.lemaf.ti.sistemarh.repositorios;
 
-import br.ufla.lemaf.ti.sistemarh.entidades.Usuario;
+import br.ufla.lemaf.ti.sistemarh.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
