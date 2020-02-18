@@ -1,0 +1,14 @@
+admin token:
+{
+	"username":"admin",
+	"senha":"123"
+}
+
+Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU4MjkwODU2OX0.HNCeKkyANcPsS369E0cOnFGoE21o-lzP_or8CVxch2oAHk4ICKy6n1Ts32E915PAHfkbQnXwfvbCjUcoatBHxw
+
+user token:
+{
+	"username":"user",
+	"senha":"123"
+}
+Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNTgyOTA4NjM4fQ.pLJhp1FjADKTkiHczJywDyVsS9HK8N4fKbzKLmU1zaNGrG2qonLmFVbUpbLZQXik-7PBd48kB2geRxOVNMLOuQ
