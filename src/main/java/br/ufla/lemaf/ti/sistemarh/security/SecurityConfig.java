@@ -4,6 +4,7 @@ import br.ufla.lemaf.ti.sistemarh.repositorios.UsuarioRepo;
 import br.ufla.lemaf.ti.sistemarh.services.UsuarioDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,10 +22,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private UsuarioDetailsService usuarioDetailsService;
     private UsuarioRepo usuarioRepo;
-    private BasicAuthenticationEntryPoint basicAuthenticationEntryPoint;
 
-    public SecurityConfig(UsuarioDetailsService usuarioDetailsService) {
+    public SecurityConfig(UsuarioDetailsService usuarioDetailsService, UsuarioRepo usuarioRepo) {
         this.usuarioDetailsService = usuarioDetailsService;
+        this.usuarioRepo = usuarioRepo;
     }
 
     @Override
@@ -42,24 +43,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
-                .addFilter(new JwtAuthorizationFilter(authenticationManager(), this.basicAuthenticationEntryPoint, this.usuarioRepo))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager(), this.usuarioRepo))
                 .authorizeRequests()
+                    .antMatchers(HttpMethod.POST, "/login").permitAll()
                     .antMatchers("/index").permitAll()
                     .antMatchers("/form/**").permitAll()
                     .antMatchers("/cadastro").permitAll()
                     .antMatchers("/user").authenticated()
                     .antMatchers("/admin").hasRole("ADMIN")
-                    .and()
-                .formLogin()
-                    .loginProcessingUrl("/signin")
-                    .loginPage("/login").permitAll() // TODO: mudar para view do vue
-                    .defaultSuccessUrl("/home")
-                    .usernameParameter("txtUsername")
-                    .passwordParameter("txtPassword")
-                    .and()
-                .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/login");
+//                    .and()
+//                .formLogin()
+//                    .loginProcessingUrl("/signin")
+//                    .loginPage("/login").permitAll() // TODO: mudar para view do vue
+//                    .defaultSuccessUrl("/home")
+//                    .usernameParameter("txtUsername")
+//                    .passwordParameter("txtPassword")
+//                    .and()
+//                .logout()
+//                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                    .logoutSuccessUrl("/login")
+                    ;
     }
 
     @Bean

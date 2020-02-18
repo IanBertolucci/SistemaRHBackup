@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         // Cria o token de login (referente ao spring security)
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                 credentials.getUsername(),
-                credentials.getPassword(),
+                credentials.getSenha(),
                 new ArrayList<>());
 
         // Autentica p usuário
