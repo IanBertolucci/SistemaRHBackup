@@ -1,0 +1,48 @@
+@import 'variaveis.scss';
+
+
+.navbar {
+	position: absolute;
+	top: 8%;
+	left: 5%;
+	width: 25%;
+	min-width: 300px;
+	height: 85%;
+	min-height: 600px;
+	border-radius: 36px;
+	background: $branco;
+	box-shadow: 0px 3px 6px #00000029;
+}
+
+.navbar-logo {
+	display: block;
+	position: relative;
+	margin-top: 30px;
+	width: 80%;
+	height: 20%;
+	margin-bottom: 20px;
+}
+
+.nav-itens {
+	height: 65%;
+	margin-top: 70px;
+}
+
+.nav-item {
+	width: 80%;
+}
+
+.v-list-item {
+	// padding-left: 15%;
+}
+
+.barra {
+	height: 20px;
+	margin-right: 15%;
+	display: block;
+	border: 1px solid $principal;
+}
+
+.hidden {
+	display: none;
+}
